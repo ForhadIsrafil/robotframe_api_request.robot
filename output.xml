@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.7.6 on win32)" generated="20201229 03:37:45.113" rpa="false">
-<suite id="s1" name="Test Case" source="I:\Fiverr Projects\robotframe_env\robot_fiverr\test\test_case.robot">
-<test id="s1-t1" name="Post Request">
+<robot generator="Robot 3.2.2 (Python 3.7.6 on win32)" generated="20201229 03:45:15.772" rpa="false">
+<suite id="s1" name="Robotframe Api Request" source="I:\Fiverr Projects\robotframe_env\robot_fiverr\robotframe_api_request.robot">
+<test id="s1-t1" name="API Post Request">
 <kw name="Create Session" library="RequestsLibrary">
 <doc>Create Session: create a HTTP session to a server</doc>
 <arguments>
@@ -10,8 +10,8 @@
 <arg>verify=True</arg>
 <arg>disable_warnings=1</arg>
 </arguments>
-<msg timestamp="20201229 03:37:45.665" level="INFO">Creating Session using : alias=mysession, url=https://webservice.eppo.go.th/eppowebservice, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
-<status status="PASS" starttime="20201229 03:37:45.664" endtime="20201229 03:37:45.665"></status>
+<msg timestamp="20201229 03:45:16.494" level="INFO">Creating Session using : alias=mysession, url=https://webservice.eppo.go.th/eppowebservice, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20201229 03:45:16.493" endtime="20201229 03:45:16.495"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
 <doc>Converts the given item to a Unicode string.</doc>
@@ -21,8 +21,8 @@
 <assign>
 <var>${body}</var>
 </assign>
-<msg timestamp="20201229 03:37:45.666" level="INFO">${body} = &lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/env...</msg>
-<status status="PASS" starttime="20201229 03:37:45.665" endtime="20201229 03:37:45.666"></status>
+<msg timestamp="20201229 03:45:16.496" level="INFO">${body} = &lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/env...</msg>
+<status status="PASS" starttime="20201229 03:45:16.495" endtime="20201229 03:45:16.496"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -32,8 +32,8 @@
 <assign>
 <var>${header}</var>
 </assign>
-<msg timestamp="20201229 03:37:45.667" level="INFO">${header} = {'Content-Type': 'text/xml'}</msg>
-<status status="PASS" starttime="20201229 03:37:45.666" endtime="20201229 03:37:45.667"></status>
+<msg timestamp="20201229 03:45:16.497" level="INFO">${header} = {'Content-Type': 'text/xml'}</msg>
+<status status="PASS" starttime="20201229 03:45:16.496" endtime="20201229 03:45:16.497"></status>
 </kw>
 <kw name="Post Request" library="RequestsLibrary">
 <doc>Send a POST request on the session object found using the
@@ -47,12 +47,12 @@ given `alias`</doc>
 <assign>
 <var>${response}</var>
 </assign>
-<msg timestamp="20201229 03:37:48.059" level="INFO">POST Request : url=https://webservice.eppo.go.th/eppowebservice/Energy_statistic.asmx?WSDL 
+<msg timestamp="20201229 03:45:18.846" level="INFO">POST Request : url=https://webservice.eppo.go.th/eppowebservice/Energy_statistic.asmx?WSDL 
  path_url=/eppowebservice/Energy_statistic.asmx?WSDL 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'text/xml', 'Content-Length': '433'} 
  body=&lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt; &lt;soap:Body&gt; &lt;GetLPGDemandSupplyMonthlyJSON xmlns="https://webservice.eppoengdb.go.th/"&gt; &lt;strUser&gt;set&lt;/strUser&gt; &lt;strPassword&gt;set&lt;/strPassword&gt; &lt;yy&gt;&lt;/yy&gt; &lt;mm&gt;&lt;/mm&gt; &lt;/GetLPGDemandSupplyMonthlyJSON&gt; &lt;/soap:Body&gt; &lt;/soap:Envelope&gt; 
  </msg>
-<msg timestamp="20201229 03:37:48.059" level="INFO">POST Response : url=https://webservice.eppo.go.th/eppowebservice/Energy_statistic.asmx?WSDL 
+<msg timestamp="20201229 03:45:18.847" level="INFO">POST Response : url=https://webservice.eppo.go.th/eppowebservice/Energy_statistic.asmx?WSDL 
  status=200, reason=OK 
  body=&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;&lt;soap:Body&gt;&lt;GetLPGDemandSupplyMonthlyJSONResponse xmlns="https://webservice.eppoengdb.go.th/"&gt;&lt;GetLPGDemandSupplyMonthlyJSONResult&gt;[
   {
@@ -608,15 +608,15 @@ given `alias`</doc>
     "qty2": 0.0,
  ... (set the log level to DEBUG or TRACE to see the full content) 
  </msg>
-<msg timestamp="20201229 03:37:48.061" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20201229 03:37:45.667" endtime="20201229 03:37:48.061"></status>
+<msg timestamp="20201229 03:45:18.848" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20201229 03:45:16.498" endtime="20201229 03:45:18.848"></status>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <doc>Logs the given message to the console.</doc>
 <arguments>
 <arg>${response.status_code}</arg>
 </arguments>
-<status status="PASS" starttime="20201229 03:37:48.063" endtime="20201229 03:37:48.071"></status>
+<status status="PASS" starttime="20201229 03:45:18.850" endtime="20201229 03:45:18.853"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
 <doc>Converts the given item to a Unicode string.</doc>
@@ -626,8 +626,8 @@ given `alias`</doc>
 <assign>
 <var>${status_code}</var>
 </assign>
-<msg timestamp="20201229 03:37:48.074" level="INFO">${status_code} = 200</msg>
-<status status="PASS" starttime="20201229 03:37:48.073" endtime="20201229 03:37:48.074"></status>
+<msg timestamp="20201229 03:45:18.856" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20201229 03:45:18.854" endtime="20201229 03:45:18.856"></status>
 </kw>
 <kw name="Should Be Equal" library="BuiltIn">
 <doc>Fails if the given objects are unequal.</doc>
@@ -635,7 +635,7 @@ given `alias`</doc>
 <arg>${status_code}</arg>
 <arg>200</arg>
 </arguments>
-<status status="PASS" starttime="20201229 03:37:48.076" endtime="20201229 03:37:48.077"></status>
+<status status="PASS" starttime="20201229 03:45:18.857" endtime="20201229 03:45:18.858"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
 <doc>Converts the given item to a Unicode string.</doc>
@@ -645,8 +645,8 @@ given `alias`</doc>
 <assign>
 <var>${response_body}</var>
 </assign>
-<msg timestamp="20201229 03:37:48.083" level="INFO">${response_body} = &lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLS...</msg>
-<status status="PASS" starttime="20201229 03:37:48.079" endtime="20201229 03:37:48.083"></status>
+<msg timestamp="20201229 03:45:18.866" level="INFO">${response_body} = &lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLS...</msg>
+<status status="PASS" starttime="20201229 03:45:18.859" endtime="20201229 03:45:18.867"></status>
 </kw>
 <kw name="Parse Xml" library="XML">
 <doc>Parses the given XML file or string into an element structure.</doc>
@@ -656,8 +656,8 @@ given `alias`</doc>
 <assign>
 <var>${xml_data}</var>
 </assign>
-<msg timestamp="20201229 03:37:48.089" level="INFO">${xml_data} = &lt;Element 'Envelope' at 0x0000027DCE8AE0E8&gt;</msg>
-<status status="PASS" starttime="20201229 03:37:48.084" endtime="20201229 03:37:48.090"></status>
+<msg timestamp="20201229 03:45:18.877" level="INFO">${xml_data} = &lt;Element 'Envelope' at 0x0000019FB6ECF228&gt;</msg>
+<status status="PASS" starttime="20201229 03:45:18.868" endtime="20201229 03:45:18.877"></status>
 </kw>
 <kw name="Get Child Elements" library="XML">
 <doc>Returns the child elements of the specified element as a list.</doc>
@@ -667,8 +667,8 @@ given `alias`</doc>
 <assign>
 <var>${child_elements}</var>
 </assign>
-<msg timestamp="20201229 03:37:48.092" level="INFO">${child_elements} = [&lt;Element 'Body' at 0x0000027DCE8AE188&gt;]</msg>
-<status status="PASS" starttime="20201229 03:37:48.091" endtime="20201229 03:37:48.092"></status>
+<msg timestamp="20201229 03:45:18.881" level="INFO">${child_elements} = [&lt;Element 'Body' at 0x0000019FB6ECF2C8&gt;]</msg>
+<status status="PASS" starttime="20201229 03:45:18.880" endtime="20201229 03:45:18.881"></status>
 </kw>
 <kw name="Get Element Text" library="XML">
 <doc>Returns all text of the element, possibly whitespace normalized.</doc>
@@ -678,7 +678,7 @@ given `alias`</doc>
 <assign>
 <var>${child_data}</var>
 </assign>
-<msg timestamp="20201229 03:37:48.097" level="INFO">${child_data} = [
+<msg timestamp="20201229 03:45:18.887" level="INFO">${child_data} = [
   {
     "yy": 1954,
     "mm": 12,
@@ -692,18 +692,11 @@ given `alias`</doc>
     "qty8": 0.017,
     "qty9": 0.0,
    ...</msg>
-<status status="PASS" starttime="20201229 03:37:48.093" endtime="20201229 03:37:48.097"></status>
+<status status="PASS" starttime="20201229 03:45:18.882" endtime="20201229 03:45:18.887"></status>
 </kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>${child_data}</arg>
-</arguments>
-<status status="PASS" starttime="20201229 03:37:48.098" endtime="20201229 03:37:48.271"></status>
-</kw>
-<status status="PASS" starttime="20201229 03:37:45.663" endtime="20201229 03:37:48.276" critical="yes"></status>
+<status status="PASS" starttime="20201229 03:45:16.492" endtime="20201229 03:45:18.888" critical="yes"></status>
 </test>
-<status status="PASS" starttime="20201229 03:37:45.116" endtime="20201229 03:37:48.277"></status>
+<status status="PASS" starttime="20201229 03:45:15.775" endtime="20201229 03:45:18.892"></status>
 </suite>
 <statistics>
 <total>
@@ -713,7 +706,7 @@ given `alias`</doc>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="Test Case">Test Case</stat>
+<stat pass="1" fail="0" id="s1" name="Robotframe Api Request">Robotframe Api Request</stat>
 </suite>
 </statistics>
 <errors>

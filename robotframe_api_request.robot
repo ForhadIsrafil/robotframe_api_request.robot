@@ -17,7 +17,7 @@ ${url} =      https://webservice.eppo.go.th/eppowebservice
 *** Test Case ***
 # headers=${headers}    headers=${headers}
 # Sleep     5
-Post Request
+API Post Request
     create session    mysession   ${url}    verify=True     disable_warnings=1
     ${body}=  convert to string     <?xml version="1.0" encoding="utf-8"?> <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> <soap:Body> <GetLPGDemandSupplyMonthlyJSON xmlns="https://webservice.eppoengdb.go.th/"> <strUser>set</strUser> <strPassword>set</strPassword> <yy></yy> <mm></mm> </GetLPGDemandSupplyMonthlyJSON> </soap:Body> </soap:Envelope>
     ${header}=      create dictionary    Content-Type=text/xml  # application/soap+xml  or
