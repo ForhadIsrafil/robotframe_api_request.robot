@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.7.6 on win32)" generated="20201229 03:37:45.113" rpa="false">
+<suite id="s1" name="Test Case" source="I:\Fiverr Projects\robotframe_env\robot_fiverr\test\test_case.robot">
+<test id="s1-t1" name="Post Request">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>${url}</arg>
+<arg>verify=True</arg>
+<arg>disable_warnings=1</arg>
+</arguments>
+<msg timestamp="20201229 03:37:45.665" level="INFO">Creating Session using : alias=mysession, url=https://webservice.eppo.go.th/eppowebservice, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20201229 03:37:45.664" endtime="20201229 03:37:45.665"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>&lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt; &lt;soap:Body&gt; &lt;GetLPGDemandSupplyMonthlyJSON xmlns="https://webservice.eppoengdb.go.th/"&gt; &lt;strUser&gt;set&lt;/strUser&gt; &lt;strPassword&gt;set&lt;/strPassword&gt; &lt;yy&gt;&lt;/yy&gt; &lt;mm&gt;&lt;/mm&gt; &lt;/GetLPGDemandSupplyMonthlyJSON&gt; &lt;/soap:Body&gt; &lt;/soap:Envelope&gt;</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20201229 03:37:45.666" level="INFO">${body} = &lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/env...</msg>
+<status status="PASS" starttime="20201229 03:37:45.665" endtime="20201229 03:37:45.666"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=text/xml</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20201229 03:37:45.667" level="INFO">${header} = {'Content-Type': 'text/xml'}</msg>
+<status status="PASS" starttime="20201229 03:37:45.666" endtime="20201229 03:37:45.667"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>/Energy_statistic.asmx?WSDL</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20201229 03:37:48.059" level="INFO">POST Request : url=https://webservice.eppo.go.th/eppowebservice/Energy_statistic.asmx?WSDL 
+ path_url=/eppowebservice/Energy_statistic.asmx?WSDL 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'text/xml', 'Content-Length': '433'} 
+ body=&lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt; &lt;soap:Body&gt; &lt;GetLPGDemandSupplyMonthlyJSON xmlns="https://webservice.eppoengdb.go.th/"&gt; &lt;strUser&gt;set&lt;/strUser&gt; &lt;strPassword&gt;set&lt;/strPassword&gt; &lt;yy&gt;&lt;/yy&gt; &lt;mm&gt;&lt;/mm&gt; &lt;/GetLPGDemandSupplyMonthlyJSON&gt; &lt;/soap:Body&gt; &lt;/soap:Envelope&gt; 
+ </msg>
+<msg timestamp="20201229 03:37:48.059" level="INFO">POST Response : url=https://webservice.eppo.go.th/eppowebservice/Energy_statistic.asmx?WSDL 
+ status=200, reason=OK 
+ body=&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;&lt;soap:Body&gt;&lt;GetLPGDemandSupplyMonthlyJSONResponse xmlns="https://webservice.eppoengdb.go.th/"&gt;&lt;GetLPGDemandSupplyMonthlyJSONResult&gt;[
+  {
+    "yy": 1954,
+    "mm": 12,
+    "qty1": 0.017,
+    "qty2": 0.0,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 0.0,
+    "qty6": 0.017,
+    "qty7": 0.017,
+    "qty8": 0.017,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.0,
+    "qty17": 0.0
+  },
+  {
+    "yy": 1955,
+    "mm": 12,
+    "qty1": 0.009,
+    "qty2": 0.0,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 0.0,
+    "qty6": 0.009,
+    "qty7": 0.009,
+    "qty8": 0.009,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.0,
+    "qty17": 0.0
+  },
+  {
+    "yy": 1956,
+    "mm": 12,
+    "qty1": 0.009,
+    "qty2": 0.0,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 0.0,
+    "qty6": 0.009,
+    "qty7": 0.009,
+    "qty8": 0.009,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.0,
+    "qty17": 0.0
+  },
+  {
+    "yy": 1957,
+    "mm": 12,
+    "qty1": 0.025,
+    "qty2": 0.0,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 0.0,
+    "qty6": 0.025,
+    "qty7": 0.026,
+    "qty8": 0.017,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.009,
+    "qty17": -0.001
+  },
+  {
+    "yy": 1958,
+    "mm": 12,
+    "qty1": 0.068,
+    "qty2": 0.0,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 0.0,
+    "qty6": 0.068,
+    "qty7": 0.068,
+    "qty8": 0.051,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.017,
+    "qty17": 0.0
+  },
+  {
+    "yy": 1959,
+    "mm": 12,
+    "qty1": 0.051,
+    "qty2": 0.0,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 0.0,
+    "qty6": 0.051,
+    "qty7": 0.017,
+    "qty8": 0.0,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.017,
+    "qty17": 0.034
+  },
+  {
+    "yy": 1960,
+    "mm": 12,
+    "qty1": 0.093,
+    "qty2": 0.0,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 0.0,
+    "qty6": 0.093,
+    "qty7": 0.079,
+    "qty8": 0.054,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.025,
+    "qty17": 0.014
+  },
+  {
+    "yy": 1961,
+    "mm": 12,
+    "qty1": 0.161,
+    "qty2": 0.0,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 0.0,
+    "qty6": 0.161,
+    "qty7": 0.187,
+    "qty8": 0.162,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.025,
+    "qty17": -0.026
+  },
+  {
+    "yy": 1962,
+    "mm": 12,
+    "qty1": 0.178,
+    "qty2": 0.0,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 0.0,
+    "qty6": 0.178,
+    "qty7": 0.196,
+    "qty8": 0.162,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.034,
+    "qty17": -0.018
+  },
+  {
+    "yy": 1963,
+    "mm": 12,
+    "qty1": 0.662,
+    "qty2": 0.0,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 0.0,
+    "qty6": 0.662,
+    "qty7": 0.662,
+    "qty8": 0.594,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.068,
+    "qty17": 0.0000000000000001110223024625
+  },
+  {
+    "yy": 1964,
+    "mm": 12,
+    "qty1": 0.832,
+    "qty2": 0.0,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 0.0,
+    "qty6": 0.832,
+    "qty7": 2.356,
+    "qty8": 2.322,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.034,
+    "qty17": -1.524
+  },
+  {
+    "yy": 1964,
+    "mm": 13,
+    "qty1": 1.401,
+    "qty2": 1.401,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 1.401,
+    "qty6": 0.0,
+    "qty7": 0.0,
+    "qty8": 0.0,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.0,
+    "qty17": 1.401
+  },
+  {
+    "yy": 1965,
+    "mm": 12,
+    "qty1": 0.009,
+    "qty2": 0.0,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 0.0,
+    "qty6": 0.009,
+    "qty7": 4.118,
+    "qty8": 4.05,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.068,
+    "qty17": -4.109
+  },
+  {
+    "yy": 1965,
+    "mm": 13,
+    "qty1": 4.16,
+    "qty2": 4.16,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 4.16,
+    "qty6": 0.0,
+    "qty7": 0.0,
+    "qty8": 0.0,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.0,
+    "qty17": 4.16
+  },
+  {
+    "yy": 1966,
+    "mm": 12,
+    "qty1": 1.503,
+    "qty2": 0.0,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 0.0,
+    "qty6": 1.503,
+    "qty7": 8.483,
+    "qty8": 8.424,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.059,
+    "qty17": -6.98
+  },
+  {
+    "yy": 1966,
+    "mm": 13,
+    "qty1": 6.801,
+    "qty2": 6.801,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 6.801,
+    "qty6": 0.0,
+    "qty7": 0.0,
+    "qty8": 0.0,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.0,
+    "qty17": 6.801
+  },
+  {
+    "yy": 1967,
+    "mm": 12,
+    "qty1": 3.379,
+    "qty2": 0.0,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 0.0,
+    "qty6": 3.379,
+    "qty7": 16.069,
+    "qty8": 15.984,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.085,
+    "qty17": -12.69
+  },
+  {
+    "yy": 1967,
+    "mm": 13,
+    "qty1": 12.201,
+    "qty2": 12.201,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 12.201,
+    "qty6": 0.0,
+    "qty7": 0.0,
+    "qty8": 0.0,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.0,
+    "qty17": 12.201
+  },
+  {
+    "yy": 1968,
+    "mm": 12,
+    "qty1": 6.105,
+    "qty2": 0.0,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 0.0,
+    "qty6": 6.105,
+    "qty7": 29.961,
+    "qty8": 29.808,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.153,
+    "qty17": -23.856
+  },
+  {
+    "yy": 1968,
+    "mm": 13,
+    "qty1": 22.899,
+    "qty2": 22.899,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 22.899,
+    "qty6": 0.0,
+    "qty7": 0.0,
+    "qty8": 0.0,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.0,
+    "qty17": 22.899
+  },
+  {
+    "yy": 1969,
+    "mm": 12,
+    "qty1": 4.016,
+    "qty2": 0.0,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 0.0,
+    "qty6": 4.016,
+    "qty7": 37.418,
+    "qty8": 37.044,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.374,
+    "qty17": -33.402
+  },
+  {
+    "yy": 1969,
+    "mm": 13,
+    "qty1": 33.189,
+    "qty2": 33.189,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 33.189,
+    "qty6": 0.0,
+    "qty7": 0.0,
+    "qty8": 0.0,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.0,
+    "qty17": 33.189
+  },
+  {
+    "yy": 1970,
+    "mm": 12,
+    "qty1": 0.159,
+    "qty2": 0.0,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 0.0,
+    "qty6": 0.159,
+    "qty7": 41.826,
+    "qty8": 40.23,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 1.596,
+    "qty17": -41.667
+  },
+  {
+    "yy": 1970,
+    "mm": 13,
+    "qty1": 41.661,
+    "qty2": 41.661,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 41.661,
+    "qty6": 0.0,
+    "qty7": 0.0,
+    "qty8": 0.0,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.0,
+    "qty17": 41.661
+  },
+  {
+    "yy": 1971,
+    "mm": 12,
+    "qty1": 0.001,
+    "qty2": 0.0,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 0.0,
+    "qty6": 0.001,
+    "qty7": 49.146,
+    "qty8": 44.172,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 4.974,
+    "qty17": -49.145
+  },
+  {
+    "yy": 1971,
+    "mm": 13,
+    "qty1": 49.666,
+    "qty2": 49.666,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 49.666,
+    "qty6": 0.0,
+    "qty7": 0.0,
+    "qty8": 0.0,
+    "qty9": 0.0,
+    "qty10": 0.0,
+    "qty11": 0.0,
+    "qty12": 0.0,
+    "qty13": 0.0,
+    "qty14": 0.0,
+    "qty15": 0.0,
+    "qty16": 0.0,
+    "qty17": 49.666
+  },
+  {
+    "yy": 1972,
+    "mm": 12,
+    "qty1": 0.001,
+    "qty2": 0.0,
+ ... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20201229 03:37:48.061" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20201229 03:37:45.667" endtime="20201229 03:37:48.061"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<status status="PASS" starttime="20201229 03:37:48.063" endtime="20201229 03:37:48.071"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<assign>
+<var>${status_code}</var>
+</assign>
+<msg timestamp="20201229 03:37:48.074" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20201229 03:37:48.073" endtime="20201229 03:37:48.074"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status_code}</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20201229 03:37:48.076" endtime="20201229 03:37:48.077"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<assign>
+<var>${response_body}</var>
+</assign>
+<msg timestamp="20201229 03:37:48.083" level="INFO">${response_body} = &lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLS...</msg>
+<status status="PASS" starttime="20201229 03:37:48.079" endtime="20201229 03:37:48.083"></status>
+</kw>
+<kw name="Parse Xml" library="XML">
+<doc>Parses the given XML file or string into an element structure.</doc>
+<arguments>
+<arg>${response_body}</arg>
+</arguments>
+<assign>
+<var>${xml_data}</var>
+</assign>
+<msg timestamp="20201229 03:37:48.089" level="INFO">${xml_data} = &lt;Element 'Envelope' at 0x0000027DCE8AE0E8&gt;</msg>
+<status status="PASS" starttime="20201229 03:37:48.084" endtime="20201229 03:37:48.090"></status>
+</kw>
+<kw name="Get Child Elements" library="XML">
+<doc>Returns the child elements of the specified element as a list.</doc>
+<arguments>
+<arg>${xml_data}</arg>
+</arguments>
+<assign>
+<var>${child_elements}</var>
+</assign>
+<msg timestamp="20201229 03:37:48.092" level="INFO">${child_elements} = [&lt;Element 'Body' at 0x0000027DCE8AE188&gt;]</msg>
+<status status="PASS" starttime="20201229 03:37:48.091" endtime="20201229 03:37:48.092"></status>
+</kw>
+<kw name="Get Element Text" library="XML">
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<arguments>
+<arg>${child_elements[0]}</arg>
+</arguments>
+<assign>
+<var>${child_data}</var>
+</assign>
+<msg timestamp="20201229 03:37:48.097" level="INFO">${child_data} = [
+  {
+    "yy": 1954,
+    "mm": 12,
+    "qty1": 0.017,
+    "qty2": 0.0,
+    "qty3": 0.0,
+    "qty4": 0.0,
+    "qty5": 0.0,
+    "qty6": 0.017,
+    "qty7": 0.017,
+    "qty8": 0.017,
+    "qty9": 0.0,
+   ...</msg>
+<status status="PASS" starttime="20201229 03:37:48.093" endtime="20201229 03:37:48.097"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${child_data}</arg>
+</arguments>
+<status status="PASS" starttime="20201229 03:37:48.098" endtime="20201229 03:37:48.271"></status>
+</kw>
+<status status="PASS" starttime="20201229 03:37:45.663" endtime="20201229 03:37:48.276" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20201229 03:37:45.116" endtime="20201229 03:37:48.277"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Test Case">Test Case</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
