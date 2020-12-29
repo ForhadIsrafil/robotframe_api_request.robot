@@ -6,6 +6,7 @@ Library     HttpCtrl.Server
 Library     XML
 Library     Collections
 Library     String
+Library     JSONLibrary
 #Library     JSONLibrary
 
 #Library     HttpLibrary.HTTP
@@ -33,10 +34,13 @@ API Post Request
     ${xml_data}=  parse xml     ${response_body}
     ${child_elements}=  get child elements      ${xml_data}
     ${child_data}=  get element text    ${child_elements[0]}
-    ${data}=      Split String    ${child_data[1:-1]}   ,
-    log to console      ${data}
-#    FOR     ${single_data}      IN      @{data[5]}
-##        ${dict_data}=
-#        log to console    ${single_data}
-#    END
+#    ${data}=      Split String    ${child_data[1:-1]}   ,
+    ${data}=      CONVERT STRING TO JSON      ${child_data}
+#    log to console      ${data}
+    FOR     ${single_data}      IN      @{data}
+#        ${dict_data}=
+        log to console       ${single_data['yy']}
+        log to console       ${single_data['mm']}
+        log to console       ${single_data['qty1']}
+    END
 #*** Keywords ***
