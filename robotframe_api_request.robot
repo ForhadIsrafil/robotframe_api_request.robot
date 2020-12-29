@@ -33,6 +33,10 @@ API Post Request
     ${xml_data}=  parse xml     ${response_body}
     ${child_elements}=  get child elements      ${xml_data}
     ${child_data}=  get element text    ${child_elements[0]}
-#    log to console      ${child_data}
-
+    ${data}=      Split String    ${child_data[1:-1]}   ,
+    log to console      ${data}
+#    FOR     ${single_data}      IN      @{data[5]}
+##        ${dict_data}=
+#        log to console    ${single_data}
+#    END
 #*** Keywords ***
