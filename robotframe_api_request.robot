@@ -48,6 +48,7 @@ API Post Request
 #        log to console       ${single_data['qty1']}
 #        ${get_policy_id}=  Set variable    ${single_data['yy']}
 #        log to console    @{data[${single_data}]}
-        log to console     ${string_data}
+#        Log Many   yy=        ${string_data}
+        log to console   yy=${string_data}
     END
 #*** Keywords ***
