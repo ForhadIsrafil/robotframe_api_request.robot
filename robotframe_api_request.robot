@@ -37,7 +37,7 @@ API Post Request
 #    ${data}=      Split String    ${child_data[1:-1]}   ,
     ${data}=      CONVERT STRING TO JSON      ${child_data}
     ${data_length}=      get length       ${data}
-    log to console         ${data_length}
+#    log to console         ${data_length}
 #    log to console      ${data[0]}
 #    FOR     ${single_data}      IN         @{data}
     FOR     ${single_data}      IN RANGE    0    ${data_length}
