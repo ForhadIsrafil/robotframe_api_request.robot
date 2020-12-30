@@ -36,13 +36,18 @@ API Post Request
     ${child_data}=  get element text    ${child_elements[0]}
 #    ${data}=      Split String    ${child_data[1:-1]}   ,
     ${data}=      CONVERT STRING TO JSON      ${child_data}
-#    log to console      ${data}
-    FOR     ${single_data}      IN         @{data}
-#        ${dict_data}=
+    ${data_length}=      get length       ${data}
+    log to console         ${data_length}
+#    log to console      ${data[0]}
+#    FOR     ${single_data}      IN         @{data}
+    FOR     ${single_data}      IN RANGE    0    ${data_length}
+        ${string_data}=     convert to string        ${data[${single_data}]['yy']}
+#        ${dict_data}=   CONVERT STRING TO JSON        ${string_data}
 #        log to console       ${single_data['yy']}
 #        log to console       ${single_data['mm']}
 #        log to console       ${single_data['qty1']}
-        ${get_policy_id}=  Set variable    ${single_data['yy']}
-        log to console    ${get_policy_id}
+#        ${get_policy_id}=  Set variable    ${single_data['yy']}
+#        log to console    @{data[${single_data}]}
+        log to console     ${string_data}
     END
 #*** Keywords ***
