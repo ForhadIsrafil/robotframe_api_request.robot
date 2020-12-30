@@ -37,10 +37,12 @@ API Post Request
 #    ${data}=      Split String    ${child_data[1:-1]}   ,
     ${data}=      CONVERT STRING TO JSON      ${child_data}
 #    log to console      ${data}
-    FOR     ${single_data}      IN      @{data}
+    FOR     ${single_data}      IN         @{data}
 #        ${dict_data}=
-        log to console       ${single_data['yy']}
-        log to console       ${single_data['mm']}
-        log to console       ${single_data['qty1']}
+#        log to console       ${single_data['yy']}
+#        log to console       ${single_data['mm']}
+#        log to console       ${single_data['qty1']}
+        ${get_policy_id}=  Set variable    ${single_data['yy']}
+        log to console    ${get_policy_id}
     END
 #*** Keywords ***
